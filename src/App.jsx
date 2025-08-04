@@ -7,6 +7,7 @@ import ForClients from "./components/ForClients";
 import Communities from "./components/Communities";
 import Testimonials from "./components/Testimonials";
 import Download from "./components/Download";
+import TermsOfService from "./components/TermsOfService";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -21,6 +22,7 @@ function App() {
       <Communities />
       <Testimonials />
       <Download />
+      <TermsOfService />
       <Footer />
     </div>
   );

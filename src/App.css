@@ -623,3 +623,118 @@ body {
     padding: 0 60px;
   }
 }
+
+/* Terms of Service Styles */
+.terms-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.terms-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.terms-content h1 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 15px;
+}
+
+.company-info {
+  background: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 4px solid #3498db;
+}
+
+.company-info p {
+  margin: 5px 0;
+  color: #2c3e50;
+}
+
+.terms-section-content {
+  margin-bottom: 30px;
+}
+
+.terms-section-content h2 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+}
+
+.terms-section-content h3 {
+  color: #34495e;
+  font-size: 1.2rem;
+  margin: 20px 0 10px 0;
+}
+
+.terms-section-content p {
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.terms-section-content ul {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.terms-section-content li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.terms-section-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.terms-section-content a:hover {
+  text-decoration: underline;
+}
+
+.terms-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.terms-footer p {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terms-section {
+    padding: 40px 0;
+  }
+
+  .terms-content {
+    margin: 0 20px;
+    padding: 30px 20px;
+  }
+
+  .terms-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .terms-section-content h2 {
+    font-size: 1.2rem;
+  }
+}
