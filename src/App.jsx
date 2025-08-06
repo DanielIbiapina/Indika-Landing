@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import HowItWorks from "./components/HowItWorks";
@@ -8,10 +8,35 @@ import Communities from "./components/Communities";
 import Testimonials from "./components/Testimonials";
 import Download from "./components/Download";
 import TermsOfService from "./components/TermsOfService";
+import AccountDeletion from "./components/AccountDeletion";
 import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("home");
+
+  useEffect(() => {
+    // Verificar se há uma rota específica na URL
+    const path = window.location.pathname;
+    if (path === "/excluir-conta") {
+      setCurrentPage("deletion");
+    } else {
+      setCurrentPage("home");
+    }
+  }, []);
+
+  // Renderizar página de exclusão de conta
+  if (currentPage === "deletion") {
+    return (
+      <div className="App">
+        <Header />
+        <AccountDeletion />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Renderizar página principal
   return (
     <div className="App">
       <Header />

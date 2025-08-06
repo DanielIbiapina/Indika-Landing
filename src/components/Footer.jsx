@@ -99,6 +99,9 @@ const Footer = () => {
               <li>
                 <a href="#lgpd">LGPD</a>
               </li>
+              <li>
+                <a href="/excluir-conta">Excluir Conta</a>
+              </li>
             </ul>
           </div>
         </div>
