@@ -9,6 +9,7 @@ import Testimonials from "./components/Testimonials";
 import Download from "./components/Download";
 import TermsOfService from "./components/TermsOfService";
 import AccountDeletion from "./components/AccountDeletion";
+import Support from "./components/Support";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -20,6 +21,8 @@ function App() {
     const path = window.location.pathname;
     if (path === "/excluir-conta") {
       setCurrentPage("deletion");
+    } else if (path === "/suporte") {
+      setCurrentPage("support");
     } else {
       setCurrentPage("home");
     }
@@ -31,6 +34,17 @@ function App() {
       <div className="App">
         <Header />
         <AccountDeletion />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Renderizar página de suporte
+  if (currentPage === "support") {
+    return (
+      <div className="App">
+        <Header />
+        <Support />
         <Footer />
       </div>
     );

@@ -105,7 +105,7 @@ const AccountDeletion = () => {
                   <h2>📧 Como solicitar exclusão parcial:</h2>
                   <ol>
                     <li>
-                      Envie email para <strong>privacy@indika.com.br</strong>
+                      Envie email para <strong>appindika.tech@email.com</strong>
                     </li>
                     <li>Assunto: "Exclusão Parcial de Dados - [Seu Nome]"</li>
                     <li>Especifique quais dados deseja excluir</li>
@@ -181,7 +181,7 @@ const AccountDeletion = () => {
                   <h2> Processo de exclusão completa:</h2>
                   <ol>
                     <li>
-                      Envie email para <strong>privacy@indika.com.br</strong>
+                      Envie email para <strong>appindika.tech@email.com</strong>
                     </li>
                     <li>Assunto: "Exclusão Completa de Conta - [Seu Nome]"</li>
                     <li>
@@ -224,14 +224,11 @@ const AccountDeletion = () => {
             <div className="contact-channels">
               <div className="contact-channel">
                 <strong>Email Principal:</strong>
-                <a href="mailto:privacy@indika.com.br">privacy@indika.com.br</a>
-              </div>
-              <div className="contact-channel">
-                <strong>Email Alternativo:</strong>
-                <a href="mailto:appindika.tech@gmail.com">
-                  appindika.tech@gmail.com
+                <a href="mailto:appindika.tech@email.com">
+                  appindika.tech@email.com
                 </a>
               </div>
+
               <div className="contact-channel">
                 <strong>WhatsApp:</strong>
                 <span>+55 (86) 99999-9999</span>
