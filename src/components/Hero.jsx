@@ -26,16 +26,18 @@ const Hero = () => {
             </div>
             <div className="hero-stats">
               <div className="stat">
-                <span className="stat-number">10k+</span>
-                <span className="stat-label">Prestadores</span>
+                <span className="stat-number">Lançamento dia 17</span>
+                <span className="stat-label">Acesso antecipado</span>
               </div>
               <div className="stat">
-                <span className="stat-number">50k+</span>
-                <span className="stat-label">Clientes</span>
+                <span className="stat-number">BR</span>
+                <span className="stat-label">
+                  Foco: São Carlos, Ribeirão Preto, Teresina
+                </span>
               </div>
               <div className="stat">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Comunidades</span>
+                <span className="stat-number">Gratuito</span>
+                <span className="stat-label">Assine para criar serviços</span>
               </div>
             </div>
           </div>

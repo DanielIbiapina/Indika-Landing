@@ -18,7 +18,7 @@ const HowItWorks = () => {
       icon: "💬",
       title: "Converse e contrate",
       description:
-        "Chat direto com o prestador, receba orçamentos e pague com segurança pelo app.",
+        "Chat direto com o prestador, receba orçamentos e escolha o método de pagamento pelo app.",
     },
   ];
 

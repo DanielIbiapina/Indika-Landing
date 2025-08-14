@@ -52,10 +52,10 @@ const Footer = () => {
             <h4>Para Prestadores</h4>
             <ul>
               <li>
-                <a href="#cadastro">Cadastre-se</a>
+                <a href="/assinatura">Cadastre-se</a>
               </li>
               <li>
-                <a href="#planos">Planos</a>
+                <a href="/assinatura">Planos</a>
               </li>
               <li>
                 <a href="#ferramentas">Ferramentas</a>
@@ -101,6 +101,9 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/excluir-conta">Excluir Conta</a>
+              </li>
+              <li>
+                <a href="/assinatura">Assinatura (iOS)</a>
               </li>
             </ul>
           </div>

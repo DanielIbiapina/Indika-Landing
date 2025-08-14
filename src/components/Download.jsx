@@ -13,19 +13,7 @@ const Download = () => {
 
           <div className="download-buttons">
             <a
-              href="#"
-              className="download-button app-store"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/images/app-store.png"
-                alt="Baixar na App Store"
-                className="download-badge"
-              />
-            </a>
-            <a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.indika.app"
               className="download-button google-play"
               target="_blank"
               rel="noopener noreferrer"
@@ -33,6 +21,18 @@ const Download = () => {
               <img
                 src="/images/google-play.png"
                 alt="Baixar no Google Play"
+                className="download-badge"
+              />
+            </a>
+            <a
+              href="https://testflight.apple.com/join/8AzKAzvC"
+              className="download-button app-store"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/images/app-store.png"
+                alt="Baixar na App Store"
                 className="download-badge"
               />
             </a>
@@ -47,16 +47,16 @@ const Download = () => {
 
           <div className="download-stats">
             <div className="stat">
-              <span>⭐ 4.8</span>
-              <small>Avaliação na loja</small>
+              <span>🚀 Beta</span>
+              <small>Acesso para prestadores (teste)</small>
             </div>
             <div className="stat">
-              <span>100k+</span>
-              <small>Downloads</small>
+              <span>📍 BR</span>
+              <small>Foco: São Carlos, Ribeirão Preto, Teresina</small>
             </div>
             <div className="stat">
-              <span>🔒 100%</span>
-              <small>Seguro</small>
+              <span>🔒</span>
+              <small>Conta gratuita</small>
             </div>
           </div>
         </div>

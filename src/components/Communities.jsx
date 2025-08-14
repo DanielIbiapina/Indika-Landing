@@ -49,12 +49,16 @@ const Communities = () => {
 
             <div className="community-stats">
               <div className="stat-item">
-                <strong>500+</strong>
-                <span>Comunidades ativas</span>
+                <strong>São Carlos-SP</strong>
+                <span>Primeiras ativações</span>
               </div>
               <div className="stat-item">
-                <strong>95%</strong>
-                <span>Satisfação dos usuários</span>
+                <strong>Ribeirão Preto-SP</strong>
+                <span>Expansão inicial</span>
+              </div>
+              <div className="stat-item">
+                <strong>Teresina-PI</strong>
+                <span>Base operacional</span>
               </div>
             </div>
           </div>
@@ -62,33 +66,28 @@ const Communities = () => {
           <div className="communities-visual">
             <div className="community-showcase">
               <div className="community-card">
-                <h4>🏠 Vila Madalena</h4>
-                <p>324 membros • 89 profissionais</p>
+                <h4>🏠 São Carlos</h4>
+                <p>Em ativação • cadastrando prestadores</p>
                 <div className="community-providers">
-                  <span className="provider-tag">🔧 João - Eletricista</span>
-                  <span className="provider-tag">💄 Maria - Cabeleireira</span>
-                  <span className="provider-tag">🏠 Ana - Diarista</span>
+                  <span className="provider-tag">🔧 Reformas</span>
+                  <span className="provider-tag">💄 Beleza</span>
+                  <span className="provider-tag">🏠 Limpeza</span>
                 </div>
               </div>
 
               <div className="community-card">
-                <h4>🌳 Jardins</h4>
-                <p>567 membros • 142 profissionais</p>
+                <h4>🌳 Ribeirão Preto</h4>
+                <p>Em ativação • cadastrando prestadores</p>
                 <div className="community-providers">
-                  <span className="provider-tag">🚗 Carlos - Mecânico</span>
-                  <span className="provider-tag">
-                    🎂 Patrícia - Confeiteira
-                  </span>
-                  <span className="provider-tag">📸 Bruno - Fotógrafo</span>
+                  <span className="provider-tag">🚗 Auto</span>
+                  <span className="provider-tag">🎂 Gastronomia</span>
+                  <span className="provider-tag">📸 Fotografia</span>
                 </div>
               </div>
 
               <div className="recommendation-bubble">
-                <p>
-                  "Contratei o João pela recomendação da vizinha. Excelente
-                  trabalho!"
-                </p>
-                <small>- Sandra, Vila Madalena</small>
+                <p>"Conectando vizinhos a profissionais confiáveis."</p>
+                <small>- Indika</small>
               </div>
             </div>
           </div>

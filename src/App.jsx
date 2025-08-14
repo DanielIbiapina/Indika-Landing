@@ -10,6 +10,7 @@ import Download from "./components/Download";
 import TermsOfService from "./components/TermsOfService";
 import AccountDeletion from "./components/AccountDeletion";
 import Support from "./components/Support";
+import Subscription from "./components/Subscription";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -23,6 +24,8 @@ function App() {
       setCurrentPage("deletion");
     } else if (path === "/suporte") {
       setCurrentPage("support");
+    } else if (path === "/assinatura") {
+      setCurrentPage("subscription");
     } else {
       setCurrentPage("home");
     }
@@ -45,6 +48,17 @@ function App() {
       <div className="App">
         <Header />
         <Support />
+        <Footer />
+      </div>
+    );
+  }
+
+  // Renderizar página de assinatura
+  if (currentPage === "subscription") {
+    return (
+      <div className="App">
+        <Header />
+        <Subscription />
         <Footer />
       </div>
     );

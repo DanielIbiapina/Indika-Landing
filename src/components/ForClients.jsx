@@ -21,8 +21,8 @@ const ForClients = () => {
     },
     {
       icon: "📱",
-      title: "Tudo no app",
-      description: "Chat, pagamento e avaliação, tudo em um só lugar",
+      title: "Tudo organizado",
+      description: "Chat, orçamentos e avaliações no app",
     },
   ];
 
@@ -73,7 +73,10 @@ const ForClients = () => {
               </div>
               <div className="feature-card">
                 <h4>💳 Pagamento Seguro</h4>
-                <p>Pague pelo app com total segurança</p>
+                <p>
+                  Combine o método de pagamento direto com o prestador e
+                  confirme no app
+                </p>
               </div>
             </div>
           </div>

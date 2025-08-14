@@ -88,7 +88,7 @@ const Support = () => {
                     </div>
 
                     <div className="support-category">
-                      <h3>�� Conta e Perfil</h3>
+                      <h3>👤 Conta e Perfil</h3>
                       <ul>
                         <li>Alterar dados pessoais</li>
                         <li>Recuperar senha</li>
@@ -132,7 +132,7 @@ const Support = () => {
                 }`}
               >
                 <div className="info-section">
-                  <h2>�� Suporte Técnico</h2>
+                  <h2>🔧 Suporte Técnico</h2>
                   <p>
                     Para problemas técnicos, bugs, falhas no aplicativo,
                     problemas de conexão e questões de performance.
@@ -140,10 +140,10 @@ const Support = () => {
                 </div>
 
                 <div className="info-section">
-                  <h2>�� Problemas Técnicos Comuns:</h2>
+                  <h2>🧰 Problemas Técnicos Comuns:</h2>
                   <div className="support-categories">
                     <div className="support-category">
-                      <h3>�� Problemas no App</h3>
+                      <h3>📱 Problemas no App</h3>
                       <ul>
                         <li>App não abre</li>
                         <li>Erro de login</li>
@@ -154,7 +154,7 @@ const Support = () => {
                     </div>
 
                     <div className="support-category">
-                      <h3>�� Problemas de Conexão</h3>
+                      <h3>🌐 Problemas de Conexão</h3>
                       <ul>
                         <li>Erro de internet</li>
                         <li>Localização não funciona</li>
@@ -189,7 +189,7 @@ const Support = () => {
                 </div>
 
                 <div className="info-section">
-                  <h2>�� Informações necessárias para suporte técnico:</h2>
+                  <h2>🧾 Informações necessárias para suporte técnico:</h2>
                   <ul>
                     <li>
                       <strong>Modelo do dispositivo:</strong> (ex: iPhone 12,
@@ -201,7 +201,7 @@ const Support = () => {
                     </li>
                     <li>
                       <strong>Versão do app:</strong> (encontrada em
-                      Configurações > Sobre)
+                      Configurações &gt; Sobre)
                     </li>
                     <li>
                       <strong>Descrição detalhada do problema</strong>
@@ -247,7 +247,7 @@ const Support = () => {
                   <h2>🏢 Serviços para Prestadores:</h2>
                   <div className="support-categories">
                     <div className="support-category">
-                      <h3>�� Planos e Cobranças</h3>
+                      <h3>💳 Planos e Cobranças</h3>
                       <ul>
                         <li>Planos disponíveis</li>
                         <li>Preços e taxas</li>
@@ -269,7 +269,7 @@ const Support = () => {
                     </div>
 
                     <div className="support-category">
-                      <h3>�� Crescimento do Negócio</h3>
+                      <h3>📈 Crescimento do Negócio</h3>
                       <ul>
                         <li>Estratégias de marketing</li>
                         <li>Como aumentar vendas</li>
@@ -361,10 +361,13 @@ const Support = () => {
                 📄 Termos de Uso
               </a>
               <a href="/excluir-conta" className="resource-link">
-                �� Exclusão de Conta
+                🗑️ Exclusão de Conta
               </a>
               <a href="#como-funciona" className="resource-link">
                 ❓ Como Funciona
+              </a>
+              <a href="/assinatura" className="resource-link">
+                💼 Assinatura de Prestador
               </a>
               <a href="#faq" className="resource-link">
                 ❓ FAQ

@@ -22,36 +22,37 @@ const ForProviders = () => {
     },
     {
       icon: "💳",
-      title: "Receba com segurança",
-      description: "Pagamentos garantidos através da nossa plataforma",
+      title: "Receba direto do cliente",
+      description: "Pagamento por PIX ou dinheiro combinado no chat",
     },
   ];
 
   const plans = [
     {
-      name: "Básico",
-      price: "Grátis",
-      period: "",
+      name: "Mensal",
+      price: "R$ 9,99",
+      period: "/mês",
       features: [
-        "Perfil básico",
-        "Até 3 serviços",
-        "Chat com clientes",
-        "Avaliações",
+        "Criação de serviços",
+        "Destaque na busca",
+        "Avaliações e reputação",
+        "Atendimento prioritário",
       ],
       highlighted: false,
     },
     {
-      name: "Pro",
-      price: "R$ 29",
-      period: "/mês",
-      features: [
-        "Tudo do Básico",
-        "Serviços ilimitados",
-        "Destaque na busca",
-        "Múltiplas subcategorias",
-        "Relatórios detalhados",
-      ],
+      name: "Trimestral",
+      price: "R$ 26,99",
+      period: "/trimestre",
+      features: ["Tudo do Mensal", "Economia de 10%", "Mais visibilidade"],
       highlighted: true,
+    },
+    {
+      name: "Semestral",
+      price: "R$ 47,99",
+      period: "/semestre",
+      features: ["Tudo do Mensal", "Economia de 20%", "Selo Pro"],
+      highlighted: false,
     },
   ];
 
@@ -82,7 +83,7 @@ const ForProviders = () => {
           </div>
 
           <div className="plans-section">
-            <h3>Escolha seu plano</h3>
+            <h3>Assine para criar serviços</h3>
             <div className="plans-grid">
               {plans.map((plan, index) => (
                 <div
@@ -104,13 +105,14 @@ const ForProviders = () => {
                       <li key={i}>✓ {feature}</li>
                     ))}
                   </ul>
-                  <button
+                  <a
+                    href="/assinatura"
                     className={`btn ${
                       plan.highlighted ? "btn-primary" : "btn-secondary"
                     }`}
                   >
-                    {plan.highlighted ? "Começar Pro" : "Começar Grátis"}
-                  </button>
+                    Assinar {plan.name}
+                  </a>
                 </div>
               ))}
             </div>
@@ -123,8 +125,8 @@ const ForProviders = () => {
             Junte-se a milhares de profissionais que já transformaram sua
             carreira
           </p>
-          <a href="#download" className="btn btn-primary">
-            Cadastrar como prestador
+          <a href="/assinatura" className="btn btn-primary">
+            Cadastrar como prestador (iOS pelo site)
           </a>
         </div>
       </div>

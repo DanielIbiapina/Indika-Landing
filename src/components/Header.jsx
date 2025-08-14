@@ -35,35 +35,62 @@ const Header = () => {
           </div>
           <ul className={`nav-menu ${isMobileMenuOpen ? "nav-menu-open" : ""}`}>
             <li>
-              <a href="#como-funciona" onClick={(e) => handleNavClick(e, "#como-funciona")}>
+              <a
+                href="#como-funciona"
+                onClick={(e) => handleNavClick(e, "#como-funciona")}
+              >
                 Como funciona
               </a>
             </li>
             <li>
-              <a href="#para-clientes" onClick={(e) => handleNavClick(e, "#para-clientes")}>
+              <a
+                href="#para-clientes"
+                onClick={(e) => handleNavClick(e, "#para-clientes")}
+              >
                 Para clientes
               </a>
             </li>
             <li>
-              <a href="#para-prestadores" onClick={(e) => handleNavClick(e, "#para-prestadores")}>
+              <a
+                href="#para-prestadores"
+                onClick={(e) => handleNavClick(e, "#para-prestadores")}
+              >
                 Para prestadores
               </a>
             </li>
             <li>
-              <a href="#comunidades" onClick={(e) => handleNavClick(e, "#comunidades")}>
+              <a href="/assinatura">Assinatura (iOS)</a>
+            </li>
+            <li>
+              <a
+                href="#comunidades"
+                onClick={(e) => handleNavClick(e, "#comunidades")}
+              >
                 Comunidades
               </a>
             </li>
           </ul>
-          <div className={`nav-actions ${isMobileMenuOpen ? "nav-actions-open" : ""}`}>
-            <a href="#login" className="nav-link">Entrar</a>
-            <a href="#download" className="btn btn-primary" onClick={(e) => handleNavClick(e, "#download")}>
+          <div
+            className={`nav-actions ${
+              isMobileMenuOpen ? "nav-actions-open" : ""
+            }`}
+          >
+            <a href="#login" className="nav-link">
+              Entrar
+            </a>
+            <a
+              href="#download"
+              className="btn btn-primary"
+              onClick={(e) => handleNavClick(e, "#download")}
+            >
               Baixar App
             </a>
           </div>
-          <button 
-            className={`mobile-menu-toggle ${isMobileMenuOpen ? "mobile-menu-open" : ""}`}
-            onClick={handleMobileMenuToggle} 
+          <button
+            className={`mobile-menu-toggle ${
+              isMobileMenuOpen ? "mobile-menu-open" : ""
+            }`}
+            onClick={handleMobileMenuToggle}
             aria-label="Toggle mobile menu"
           >
             <span></span>
