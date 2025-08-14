@@ -228,12 +228,18 @@ const Subscription = () => {
         >
           <strong>Usuários iOS:</strong> devido às regras de In‑App Purchase,
           ative e gerencie sua assinatura aqui pelo site. Usuários Android podem
-          assinar diretamente pelo app.
+          assinar por aqui ou diretamente pelo app.
         </div>
 
         <div id="login-box" style={{ maxWidth: 680, margin: "16px auto" }}>
-          <h3 style={{ color: "#422680", marginBottom: 8 }}>Entrar</h3>
-          <p style={{ color: "#4b5563", marginBottom: 12 }}>
+          <h3
+            style={{ color: "#422680", marginBottom: 8, textAlign: "center" }}
+          >
+            Entrar
+          </h3>
+          <p
+            style={{ color: "#4b5563", marginBottom: 20, textAlign: "center" }}
+          >
             Faça login com seu e-mail ou telefone cadastrado para assinar.
           </p>
           {token && user ? (
@@ -242,12 +248,14 @@ const Subscription = () => {
                 background: "#ecfdf5",
                 border: "1px solid #34d399",
                 color: "#065f46",
-                padding: 12,
+                padding: 16,
                 borderRadius: 12,
-                marginBottom: 12,
+                marginBottom: 20,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
+                flexWrap: "wrap",
+                gap: 12,
               }}
             >
               <span>
@@ -259,29 +267,105 @@ const Subscription = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleLogin} style={{ display: "grid", gap: 12 }}>
-              <input
-                type="text"
-                placeholder="E-mail ou telefone (formato 5511999999999)"
-                value={identifier}
-                onChange={(e) => setIdentifier(e.target.value)}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+            <form
+              onSubmit={handleLogin}
+              style={{
+                display: "grid",
+                gap: 16,
+                maxWidth: 400,
+                margin: "0 auto",
+              }}
+            >
+              <div style={{ position: "relative" }}>
+                <input
+                  type="text"
+                  placeholder="E-mail ou telefone (formato 11999999999)"
+                  value={identifier}
+                  onChange={(e) => setIdentifier(e.target.value)}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "16px 20px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "12px",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                    backgroundColor: "#ffffff",
+                    color: "#111827",
+                    boxSizing: "border-box",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#422680";
+                    e.target.style.boxShadow =
+                      "0 0 0 3px rgba(66, 38, 128, 0.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#e5e7eb";
+                    e.target.style.boxShadow = "none";
+                  }}
+                />
+              </div>
+              <div style={{ position: "relative" }}>
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  style={{
+                    width: "100%",
+                    padding: "16px 20px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "12px",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease",
+                    backgroundColor: "#ffffff",
+                    color: "#111827",
+                    boxSizing: "border-box",
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = "#422680";
+                    e.target.style.boxShadow =
+                      "0 0 0 3px rgba(66, 38, 128, 0.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = "#e5e7eb";
+                    e.target.style.boxShadow = "none";
+                  }}
+                />
+              </div>
               <button
                 type="submit"
                 className="btn btn-primary"
                 disabled={loading}
+                style={{
+                  padding: "16px 24px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  borderRadius: "12px",
+                  border: "none",
+                  cursor: loading ? "not-allowed" : "pointer",
+                  opacity: loading ? 0.7 : 1,
+                  transition: "all 0.3s ease",
+                }}
               >
                 {loading ? "Entrando..." : "Entrar"}
               </button>
-              {error && <div style={{ color: "#b91c1c" }}>{error}</div>}
+              {error && (
+                <div
+                  style={{
+                    color: "#b91c1c",
+                    textAlign: "center",
+                    padding: "12px",
+                    backgroundColor: "#fef2f2",
+                    border: "1px solid #fecaca",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                  }}
+                >
+                  {error}
+                </div>
+              )}
             </form>
           )}
         </div>
@@ -293,6 +377,7 @@ const Subscription = () => {
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: 24,
             marginTop: 32,
+            maxWidth: "100%",
           }}
         >
           {plans.map((plan, idx) => (
@@ -443,6 +528,73 @@ const Subscription = () => {
           </a>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .plans-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            margin-top: 24px !important;
+          }
+
+          .plan-card {
+            margin: 0 8px;
+          }
+
+          .notice {
+            margin: 16px 8px !important;
+            padding: 12px !important;
+            font-size: 14px !important;
+          }
+
+          #login-box {
+            margin: 16px 8px !important;
+          }
+
+          form {
+            max-width: 100% !important;
+            margin: 0 !important;
+          }
+
+          input {
+            font-size: 16px !important;
+            padding: 14px 16px !important;
+          }
+
+          button {
+            padding: 14px 20px !important;
+            font-size: 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-title {
+            font-size: 1.8rem !important;
+            line-height: 1.2 !important;
+          }
+
+          .section-subtitle {
+            font-size: 1rem !important;
+            line-height: 1.4 !important;
+          }
+
+          .plans-grid {
+            gap: 12px !important;
+          }
+
+          .plan-card {
+            padding: 20px 16px !important;
+          }
+
+          .plan-card h3 {
+            font-size: 1.3rem !important;
+          }
+
+          .plan-card .price {
+            font-size: 2.5rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
