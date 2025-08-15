@@ -73,7 +73,7 @@ function App() {
       <ForClients />
       <ForProviders />
       <Communities />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Download />
       <TermsOfService />
       <Footer />

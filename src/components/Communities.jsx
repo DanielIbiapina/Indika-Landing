@@ -58,7 +58,7 @@ const Communities = () => {
               </div>
               <div className="stat-item">
                 <strong>Teresina-PI</strong>
-                <span>Base operacional</span>
+                <span>Expansão inicial</span>
               </div>
             </div>
           </div>

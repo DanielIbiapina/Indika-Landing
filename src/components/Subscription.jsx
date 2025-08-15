@@ -174,407 +174,635 @@ const Subscription = () => {
       setStatusError(err.message || "Erro inesperado");
     }
   };
+
   const plans = [
     {
       name: "Mensal",
       price: "R$ 9,99",
       period: "/mês",
-      details: [
-        "Crie e gerencie seus serviços",
-        "Destaque nas buscas",
-        "Avaliações e reputação",
-        "Suporte prioritário",
-      ],
+      savings: null,
       highlight: false,
     },
     {
       name: "Trimestral",
       price: "R$ 26,99",
       period: "/trimestre",
-      details: ["Tudo do Mensal", "Economia de 10%", "Mais visibilidade"],
+      savings: "10%",
       highlight: true,
     },
     {
       name: "Semestral",
       price: "R$ 47,99",
       period: "/semestre",
-      details: ["Tudo do Mensal", "Economia de 20%", "Selo Pro"],
+      savings: "20%",
       highlight: false,
     },
   ];
 
   return (
-    <section className="section" id="assinatura">
+    <section className="section subscription-section" id="assinatura">
       <div className="container">
-        <h2 className="section-title" style={{ textAlign: "center" }}>
-          Assinatura para Prestadores
-        </h2>
-        <p className="section-subtitle" style={{ textAlign: "center" }}>
-          O aplicativo é gratuito para todos. Para criar serviços e se tornar
-          prestador, é necessária uma assinatura ativa.
-        </p>
-
-        <div id="login-box" style={{ maxWidth: 680, margin: "16px auto" }}>
-          <p
-            style={{ color: "#4b5563", marginBottom: 20, textAlign: "center" }}
-          >
-            Faça login com seu e-mail ou telefone cadastrado para assinar.
+        {/* Header da seção */}
+        <div className="subscription-header">
+          <h2 className="section-title">Escolha seu Plano</h2>
+          <p className="section-subtitle">
+            O aplicativo é gratuito para todos. Para criar serviços e se tornar
+            prestador, é necessária uma assinatura ativa.
           </p>
-          {token && user ? (
-            <div
-              style={{
-                background: "#ecfdf5",
-                border: "1px solid #34d399",
-                color: "#065f46",
-                padding: 16,
-                borderRadius: 12,
-                marginBottom: 20,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                flexWrap: "wrap",
-                gap: 12,
-              }}
-            >
-              <span>
-                Logado como{" "}
-                <strong>{user?.email || user?.phone || "usuário"}</strong>
-              </span>
-              <button className="btn btn-secondary" onClick={handleLogout}>
-                Sair
-              </button>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleLogin}
-              style={{
-                display: "grid",
-                gap: 16,
-                maxWidth: 400,
-                margin: "0 auto",
-              }}
-            >
-              <div style={{ position: "relative" }}>
-                <input
-                  type="text"
-                  placeholder="E-mail ou telefone (formato 11999999999)"
-                  value={identifier}
-                  onChange={(e) => setIdentifier(e.target.value)}
-                  required
-                  style={{
-                    width: "100%",
-                    padding: "16px 20px",
-                    border: "2px solid #e5e7eb",
-                    borderRadius: "12px",
-                    fontSize: "16px",
-                    transition: "all 0.3s ease",
-                    backgroundColor: "#ffffff",
-                    color: "#111827",
-                    boxSizing: "border-box",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#422680";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(66, 38, 128, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-              <div style={{ position: "relative" }}>
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  style={{
-                    width: "100%",
-                    padding: "16px 20px",
-                    border: "2px solid #e5e7eb",
-                    borderRadius: "12px",
-                    fontSize: "16px",
-                    transition: "all 0.3s ease",
-                    backgroundColor: "#ffffff",
-                    color: "#111827",
-                    boxSizing: "border-box",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "#422680";
-                    e.target.style.boxShadow =
-                      "0 0 0 3px rgba(66, 38, 128, 0.1)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={loading}
-                style={{
-                  padding: "16px 24px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  borderRadius: "12px",
-                  border: "none",
-                  cursor: loading ? "not-allowed" : "pointer",
-                  opacity: loading ? 0.7 : 1,
-                  transition: "all 0.3s ease",
-                }}
-              >
-                {loading ? "Entrando..." : "Entrar"}
-              </button>
-              {error && (
-                <div
-                  style={{
-                    color: "#b91c1c",
-                    textAlign: "center",
-                    padding: "12px",
-                    backgroundColor: "#fef2f2",
-                    border: "1px solid #fecaca",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                  }}
-                >
-                  {error}
+        </div>
+
+        {/* Box de login */}
+        <div className="login-container" id="login-box">
+          <div className="login-box">
+            <h3>Faça login para continuar</h3>
+            <p>Use seu e-mail ou telefone cadastrado para assinar</p>
+
+            {token && user ? (
+              <div className="user-logged">
+                <div className="user-info">
+                  <span className="user-label">Logado como:</span>
+                  <strong className="user-email">
+                    {user?.email || user?.phone || "usuário"}
+                  </strong>
                 </div>
-              )}
-            </form>
-          )}
-        </div>
-
-        <div
-          className="plans-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 24,
-            marginTop: 32,
-            maxWidth: "100%",
-          }}
-        >
-          {plans.map((plan, idx) => (
-            <div
-              key={idx}
-              className={`plan-card ${plan.highlight ? "plan-highlight" : ""}`}
-              style={{
-                background: plan.highlight
-                  ? "linear-gradient(135deg, #422680, #6366f1)"
-                  : "#fff",
-                color: plan.highlight ? "#fff" : "#111827",
-                border: plan.highlight
-                  ? "2px solid #422680"
-                  : "2px solid #e5e7eb",
-                borderRadius: 16,
-                padding: 24,
-                textAlign: "center",
-              }}
-            >
-              {plan.highlight && (
-                <div
-                  style={{
-                    background: "#fbbf24",
-                    color: "#111827",
-                    display: "inline-block",
-                    padding: "4px 12px",
-                    borderRadius: 9999,
-                    fontWeight: 700,
-                    marginBottom: 12,
-                  }}
-                >
-                  Mais popular
-                </div>
-              )}
-              <h3 style={{ marginBottom: 8 }}>{plan.name}</h3>
-              <div style={{ marginBottom: 16 }}>
-                <span style={{ fontSize: 32, fontWeight: 800 }}>
-                  {plan.price}
-                </span>
-                <span style={{ opacity: 0.85, marginLeft: 6 }}>
-                  {plan.period}
-                </span>
+                <button className="btn btn-outline" onClick={handleLogout}>
+                  Sair
+                </button>
               </div>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: "0 0 16px 0",
-                  textAlign: "left",
-                }}
-              >
-                {plan.details.map((d, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      padding: "8px 0",
-                      borderBottom: plan.highlight
-                        ? "1px solid rgba(255,255,255,0.25)"
-                        : "1px solid #e5e7eb",
-                    }}
-                  >
-                    ✓ {d}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className={`btn ${
-                  plan.highlight ? "btn-primary" : "btn-secondary"
-                }`}
-                style={{ display: "inline-block" }}
-                onClick={() => startCheckout(plan.name)}
-              >
-                Assinar {plan.name}
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div
-          style={{
-            marginTop: 32,
-            maxWidth: 900,
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          <h4 style={{ color: "#422680", marginBottom: 8 }}>
-            Como funciona o pagamento
-          </h4>
-          <ul style={{ color: "#4b5563" }}>
-            <li>
-              Assinatura recorrente com renovação automática no período
-              escolhido.
-            </li>
-            <li>
-              Você pode cancelar a qualquer momento; o acesso permanece até o
-              fim do ciclo vigente.
-            </li>
-            <li>
-              Reembolso integral em até 7 dias da contratação (direito de
-              arrependimento).
-            </li>
-          </ul>
-        </div>
-
-        <div style={{ marginTop: 24 }}>
-          <h4 style={{ color: "#422680", marginBottom: 8 }}>
-            Status da assinatura
-          </h4>
-          <div
-            style={{
-              display: "flex",
-              gap: 12,
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <button
-              className="btn btn-secondary"
-              onClick={fetchStatus}
-              disabled={statusLoading}
-            >
-              {statusLoading ? "Verificando..." : "Verificar status"}
-            </button>
-            {status?.status && (
-              <span style={{ color: "#4b5563" }}>
-                Status: <strong>{status.status}</strong>
-                {status.planType ? ` • Plano: ${status.planType}` : ""}
-              </span>
-            )}
-            {status?.status && status?.planType && (
-              <button
-                className="btn btn-secondary"
-                onClick={cancelSubscription}
-              >
-                Cancelar assinatura
-              </button>
+            ) : (
+              <form onSubmit={handleLogin} className="login-form">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    placeholder="E-mail ou telefone (11999999999)"
+                    value={identifier}
+                    onChange={(e) => setIdentifier(e.target.value)}
+                    required
+                    className="form-input"
+                  />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="password"
+                    placeholder="Senha"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="form-input"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-primary login-btn"
+                  disabled={loading}
+                >
+                  {loading ? "Entrando..." : "Entrar"}
+                </button>
+                {error && <div className="error-message">{error}</div>}
+              </form>
             )}
           </div>
-          {statusError && (
-            <div style={{ color: "#b91c1c", marginTop: 8 }}>{statusError}</div>
-          )}
         </div>
 
-        <div style={{ marginTop: 24, textAlign: "center" }}>
-          <a href="/suporte" className="btn btn-secondary">
+        {/* Grid de planos */}
+        <div className="plans-container">
+          <div className="plans-grid">
+            {plans.map((plan, idx) => (
+              <div
+                key={idx}
+                className={`plan-card ${
+                  plan.highlight ? "plan-highlight" : ""
+                }`}
+              >
+                {plan.highlight && (
+                  <div className="plan-badge">Mais popular</div>
+                )}
+
+                <div className="plan-header">
+                  <h3 className="plan-name">{plan.name}</h3>
+                  <div className="plan-price">
+                    <span className="price-amount">{plan.price}</span>
+                    <span className="price-period">{plan.period}</span>
+                  </div>
+                  {plan.savings && (
+                    <div className="plan-savings">
+                      Economia de {plan.savings}
+                    </div>
+                  )}
+                </div>
+
+                <div className="plan-features">
+                  <div className="feature-item">
+                    <span className="feature-icon">✓</span>
+                    <span>Crie e gerencie seus serviços</span>
+                  </div>
+                  <div className="feature-item">
+                    <span className="feature-icon">✓</span>
+                    <span>Destaque nas buscas</span>
+                  </div>
+                  <div className="feature-item">
+                    <span className="feature-icon">✓</span>
+                    <span>Avaliações e reputação</span>
+                  </div>
+                  <div className="feature-item">
+                    <span className="feature-icon">✓</span>
+                    <span>Suporte prioritário</span>
+                  </div>
+                </div>
+
+                <button
+                  className={`btn plan-btn ${
+                    plan.highlight ? "btn-primary" : "btn-outline"
+                  }`}
+                  onClick={() => startCheckout(plan.name)}
+                >
+                  Assinar {plan.name}
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Informações adicionais */}
+        <div className="subscription-info">
+          <div className="info-section">
+            <h4>Como funciona o pagamento</h4>
+            <ul>
+              <li>
+                Assinatura recorrente com renovação automática no período
+                escolhido
+              </li>
+              <li>
+                Você pode cancelar a qualquer momento; o acesso permanece até o
+                fim do ciclo vigente
+              </li>
+              <li>
+                Reembolso integral em até 7 dias da contratação (direito de
+                arrependimento)
+              </li>
+            </ul>
+          </div>
+
+          <div className="info-section">
+            <h4>Status da assinatura</h4>
+            <div className="status-actions">
+              <button
+                className="btn btn-outline"
+                onClick={fetchStatus}
+                disabled={statusLoading}
+              >
+                {statusLoading ? "Verificando..." : "Verificar status"}
+              </button>
+              {status?.status && (
+                <div className="status-display">
+                  <span className="status-text">
+                    Status: <strong>{status.status}</strong>
+                    {status.planType ? ` • Plano: ${status.planType}` : ""}
+                  </span>
+                  {status?.status && status?.planType && (
+                    <button
+                      className="btn btn-danger"
+                      onClick={cancelSubscription}
+                    >
+                      Cancelar assinatura
+                    </button>
+                  )}
+                </div>
+              )}
+              {statusError && (
+                <div className="error-message">{statusError}</div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Suporte */}
+        <div className="support-section">
+          <a href="/suporte" className="btn btn-outline support-btn">
             Dúvidas? Fale com o suporte
           </a>
         </div>
       </div>
 
       <style jsx>{`
+        .subscription-section {
+          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          padding: 80px 0;
+        }
+
+        .subscription-header {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+
+        .subscription-header .section-title {
+          font-size: 3rem;
+          font-weight: 800;
+          background: linear-gradient(135deg, #422680, #6366f1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 20px;
+        }
+
+        .subscription-header .section-subtitle {
+          font-size: 1.25rem;
+          color: #64748b;
+          max-width: 700px;
+          margin: 0 auto;
+        }
+
+        .login-container {
+          max-width: 500px;
+          margin: 0 auto 60px;
+        }
+
+        .login-box {
+          background: white;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+          text-align: center;
+        }
+
+        .login-box h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 8px;
+        }
+
+        .login-box p {
+          color: #64748b;
+          margin-bottom: 30px;
+        }
+
+        .user-logged {
+          background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+          border: 1px solid #34d399;
+          border-radius: 16px;
+          padding: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+
+        .user-label {
+          font-size: 0.875rem;
+          color: #065f46;
+        }
+
+        .user-email {
+          color: #065f46;
+          font-size: 1.125rem;
+        }
+
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .form-group {
+          position: relative;
+        }
+
+        .form-input {
+          width: 100%;
+          padding: 18px 24px;
+          border: 2px solid #e2e8f0;
+          border-radius: 16px;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          background: #f8fafc;
+          color: #1e293b;
+        }
+
+        .form-input:focus {
+          outline: none;
+          border-color: #422680;
+          background: white;
+          box-shadow: 0 0 0 4px rgba(66, 38, 128, 0.1);
+        }
+
+        .login-btn {
+          padding: 18px 32px;
+          font-size: 1.125rem;
+          font-weight: 600;
+          border-radius: 16px;
+          margin-top: 8px;
+        }
+
+        .error-message {
+          background: #fef2f2;
+          border: 1px solid #fecaca;
+          color: #b91c1c;
+          padding: 16px;
+          border-radius: 12px;
+          font-size: 0.875rem;
+          text-align: center;
+        }
+
+        .plans-container {
+          margin-bottom: 60px;
+        }
+
+        .plans-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 32px;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+
+        .plan-card {
+          background: white;
+          border-radius: 24px;
+          padding: 40px 32px;
+          text-align: center;
+          position: relative;
+          transition: all 0.3s ease;
+          border: 2px solid #e2e8f0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .plan-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .plan-highlight {
+          border-color: #422680;
+          background: linear-gradient(135deg, #422680, #6366f1);
+          color: white;
+          transform: scale(1.05);
+        }
+
+        .plan-highlight:hover {
+          transform: scale(1.05) translateY(-8px);
+        }
+
+        .plan-badge {
+          position: absolute;
+          top: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #fbbf24;
+          color: #1e293b;
+          padding: 8px 20px;
+          border-radius: 20px;
+          font-weight: 700;
+          font-size: 0.875rem;
+          box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+        }
+
+        .plan-header {
+          margin-bottom: 32px;
+        }
+
+        .plan-name {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 16px;
+          color: inherit;
+        }
+
+        .plan-price {
+          margin-bottom: 16px;
+        }
+
+        .price-amount {
+          font-size: 3rem;
+          font-weight: 800;
+          display: block;
+          line-height: 1;
+        }
+
+        .price-period {
+          font-size: 1.125rem;
+          opacity: 0.8;
+          margin-left: 8px;
+        }
+
+        .plan-savings {
+          background: rgba(34, 197, 94, 0.2);
+          color: #16a34a;
+          padding: 8px 16px;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 0.875rem;
+          display: inline-block;
+        }
+
+        .plan-highlight .plan-savings {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+        }
+
+        .plan-features {
+          margin-bottom: 32px;
+          text-align: left;
+        }
+
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-highlight .feature-item {
+          border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+          color: #22c55e;
+          font-weight: bold;
+          font-size: 1.125rem;
+        }
+
+        .plan-highlight .feature-icon {
+          color: #a7f3d0;
+        }
+
+        .plan-btn {
+          width: 100%;
+          padding: 18px 32px;
+          font-size: 1.125rem;
+          font-weight: 600;
+          border-radius: 16px;
+          transition: all 0.3s ease;
+        }
+
+        .subscription-info {
+          max-width: 800px;
+          margin: 0 auto 60px;
+        }
+
+        .info-section {
+          background: white;
+          border-radius: 20px;
+          padding: 32px;
+          margin-bottom: 24px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-section h4 {
+          color: #422680;
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        .info-section ul {
+          color: #64748b;
+          line-height: 1.7;
+        }
+
+        .info-section li {
+          margin-bottom: 12px;
+          padding-left: 20px;
+          position: relative;
+        }
+
+        .info-section li:before {
+          content: "•";
+          color: #422680;
+          font-weight: bold;
+          position: absolute;
+          left: 0;
+        }
+
+        .status-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .status-display {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          align-items: flex-start;
+        }
+
+        .status-text {
+          color: #64748b;
+          font-size: 0.875rem;
+        }
+
+        .support-section {
+          text-align: center;
+        }
+
+        .support-btn {
+          padding: 18px 32px;
+          font-size: 1.125rem;
+          border-radius: 16px;
+        }
+
+        .btn-outline {
+          background: transparent;
+          color: #422680;
+          border: 2px solid #422680;
+        }
+
+        .btn-outline:hover {
+          background: #422680;
+          color: white;
+        }
+
+        .btn-danger {
+          background: #ef4444;
+          color: white;
+          border: 2px solid #ef4444;
+        }
+
+        .btn-danger:hover {
+          background: #dc2626;
+          border-color: #dc2626;
+        }
+
+        /* Responsividade */
         @media (max-width: 768px) {
-          .section {
-            margin-top: 60px !important;
-            padding-top: 20px !important;
+          .subscription-section {
+            padding: 60px 0;
+          }
+
+          .subscription-header .section-title {
+            font-size: 2.5rem;
+          }
+
+          .subscription-header .section-subtitle {
+            font-size: 1.125rem;
+          }
+
+          .login-box {
+            padding: 32px 24px;
+            margin: 0 16px;
           }
 
           .plans-grid {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-            margin-top: 24px !important;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 0 16px;
           }
 
           .plan-card {
-            margin: 0 8px;
+            padding: 32px 24px;
           }
 
-          .notice {
-            margin: 16px 8px !important;
-            padding: 12px !important;
-            font-size: 14px !important;
+          .plan-highlight {
+            transform: none;
           }
 
-          #login-box {
-            margin: 16px 8px !important;
+          .plan-highlight:hover {
+            transform: translateY(-4px);
           }
 
-          form {
-            max-width: 100% !important;
-            margin: 0 !important;
+          .price-amount {
+            font-size: 2.5rem;
           }
 
-          input {
-            font-size: 16px !important;
-            padding: 14px 16px !important;
-          }
-
-          button {
-            padding: 14px 20px !important;
-            font-size: 16px !important;
+          .info-section {
+            margin: 0 16px 24px;
+            padding: 24px;
           }
         }
 
         @media (max-width: 480px) {
-          .section-title {
-            font-size: 1.8rem !important;
-            line-height: 1.2 !important;
+          .subscription-header .section-title {
+            font-size: 2rem;
           }
 
-          .section-subtitle {
-            font-size: 1rem !important;
-            line-height: 1.4 !important;
+          .subscription-header .section-subtitle {
+            font-size: 1rem;
           }
 
-          .plans-grid {
-            gap: 12px !important;
+          .login-box {
+            padding: 24px 20px;
           }
 
           .plan-card {
-            padding: 20px 16px !important;
+            padding: 24px 20px;
           }
 
-          .plan-card h3 {
-            font-size: 1.3rem !important;
+          .price-amount {
+            font-size: 2rem;
           }
 
-          .plan-card .price {
-            font-size: 2.5rem !important;
+          .plan-name {
+            font-size: 1.25rem;
           }
         }
       `}</style>

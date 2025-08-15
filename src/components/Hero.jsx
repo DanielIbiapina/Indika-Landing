@@ -10,7 +10,7 @@ const Hero = () => {
             <div className="hero-logo">
               <Logo size="large" />
             </div>
-            <h1>Conecte-se com profissionais da sua vizinhanca</h1>
+            <h1>Conecte-se com profissionais da sua vizinhança</h1>
             <p>
               O Indika e o marketplace que conecta voce aos melhores prestadores
               de servicos da sua comunidade. Recomendacoes reais de vizinhos
@@ -18,7 +18,7 @@ const Hero = () => {
             </p>
             <div className="hero-buttons">
               <a href="#download" className="btn btn-primary">
-                📱 Baixar App
+                Baixar App
               </a>
               <a href="#como-funciona" className="btn btn-secondary">
                 Como funciona
