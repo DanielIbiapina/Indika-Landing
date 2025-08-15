@@ -126,7 +126,7 @@ const ForProviders = () => {
             carreira
           </p>
           <a href="/assinatura" className="btn btn-primary">
-            Cadastrar como prestador (iOS pelo site)
+            Cadastrar como prestador
           </a>
         </div>
       </div>

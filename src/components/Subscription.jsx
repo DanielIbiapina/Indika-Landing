@@ -214,29 +214,7 @@ const Subscription = () => {
           prestador, é necessária uma assinatura ativa.
         </p>
 
-        <div
-          className="notice"
-          style={{
-            background: "#fff7ed",
-            border: "1px solid #fdba74",
-            color: "#9a3412",
-            padding: "16px",
-            borderRadius: "12px",
-            margin: "24px auto",
-            maxWidth: 900,
-          }}
-        >
-          <strong>Usuários iOS:</strong> devido às regras de In‑App Purchase,
-          ative e gerencie sua assinatura aqui pelo site. Usuários Android podem
-          assinar por aqui ou diretamente pelo app.
-        </div>
-
         <div id="login-box" style={{ maxWidth: 680, margin: "16px auto" }}>
-          <h3
-            style={{ color: "#422680", marginBottom: 8, textAlign: "center" }}
-          >
-            Entrar
-          </h3>
           <p
             style={{ color: "#4b5563", marginBottom: 20, textAlign: "center" }}
           >
@@ -531,6 +509,11 @@ const Subscription = () => {
 
       <style jsx>{`
         @media (max-width: 768px) {
+          .section {
+            margin-top: 60px !important;
+            padding-top: 20px !important;
+          }
+
           .plans-grid {
             grid-template-columns: 1fr !important;
             gap: 16px !important;

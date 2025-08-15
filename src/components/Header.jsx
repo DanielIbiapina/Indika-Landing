@@ -59,7 +59,7 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="/assinatura">Assinatura (iOS)</a>
+              <a href="/assinatura">Assinatura</a>
             </li>
             <li>
               <a

@@ -103,7 +103,7 @@ const Footer = () => {
                 <a href="/excluir-conta">Excluir Conta</a>
               </li>
               <li>
-                <a href="/assinatura">Assinatura (iOS)</a>
+                <a href="/assinatura">Assinatura</a>
               </li>
             </ul>
           </div>

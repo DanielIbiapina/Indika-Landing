@@ -209,8 +209,9 @@ const Hero = () => {
 
         @media (max-width: 768px) {
           .hero {
-            padding: 60px 0;
+            padding: 120px 0 60px 0;
             min-height: auto;
+            margin-top: 60px;
           }
 
           .hero-content {
@@ -245,7 +246,8 @@ const Hero = () => {
 
         @media (max-width: 480px) {
           .hero {
-            padding: 40px 0;
+            padding: 100px 0 40px 0;
+            margin-top: 60px;
           }
 
           .hero-text h1 {
