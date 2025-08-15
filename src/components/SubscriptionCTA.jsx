@@ -41,7 +41,7 @@ const SubscriptionCTA = () => {
               </div>
             </div>
             <button className="cta-button" onClick={scrollToSubscription}>
-              Começar Agora - A partir de R$ 9,99/mês
+              Começar Agora - A partir de R$ 7,99/mês
             </button>
             <p className="cta-note">
               ✨ 30 dias grátis • Cancele quando quiser

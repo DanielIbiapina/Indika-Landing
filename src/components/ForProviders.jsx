@@ -33,10 +33,10 @@ const ForProviders = () => {
       price: "R$ 9,99",
       period: "/mês",
       features: [
-        "Criação de serviços",
-        "Destaque na busca",
+        "Crie e gerencie seus serviços",
+        "Destaque nas buscas",
         "Avaliações e reputação",
-        "Atendimento prioritário",
+        "Suporte prioritário",
       ],
       highlighted: false,
     },
@@ -44,14 +44,24 @@ const ForProviders = () => {
       name: "Trimestral",
       price: "R$ 26,99",
       period: "/trimestre",
-      features: ["Tudo do Mensal", "Economia de 10%", "Mais visibilidade"],
+      features: [
+        "Crie e gerencie seus serviços",
+        "Destaque nas buscas",
+        "Avaliações e reputação",
+        "Suporte prioritário",
+      ],
       highlighted: true,
     },
     {
       name: "Semestral",
       price: "R$ 47,99",
       period: "/semestre",
-      features: ["Tudo do Mensal", "Economia de 20%", "Selo Pro"],
+      features: [
+        "Crie e gerencie seus serviços",
+        "Destaque nas buscas",
+        "Avaliações e reputação",
+        "Suporte prioritário",
+      ],
       highlighted: false,
     },
   ];
@@ -180,9 +190,9 @@ const ForProviders = () => {
 
         .plans-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
           gap: 30px;
-          max-width: 800px;
+          max-width: 1100px;
           margin: 0 auto;
         }
 
@@ -273,9 +283,17 @@ const ForProviders = () => {
           opacity: 0.9;
         }
 
+        @media (max-width: 1024px) {
+          .plans-grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 700px;
+          }
+        }
+
         @media (max-width: 768px) {
           .plans-grid {
             grid-template-columns: 1fr;
+            max-width: 400px;
           }
 
           .plan-highlighted {

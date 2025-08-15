@@ -518,9 +518,9 @@ const Subscription = () => {
 
         .plans-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
           gap: 32px;
-          max-width: 1000px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
@@ -734,6 +734,14 @@ const Subscription = () => {
         }
 
         /* Responsividade */
+        @media (max-width: 1024px) {
+          .plans-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 800px;
+          }
+        }
+
         @media (max-width: 768px) {
           .subscription-section {
             padding: 60px 0;

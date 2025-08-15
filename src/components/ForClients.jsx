@@ -45,7 +45,6 @@ const ForClients = () => {
             <div className="benefits">
               {benefits.map((benefit, index) => (
                 <div key={index} className="benefit">
-                  <div className="benefit-icon">{benefit.icon}</div>
                   <div className="benefit-content">
                     <h3>{benefit.title}</h3>
                     <p>{benefit.description}</p>

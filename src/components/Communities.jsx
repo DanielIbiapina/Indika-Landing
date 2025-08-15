@@ -3,17 +3,17 @@ import React from "react";
 const Communities = () => {
   const communityFeatures = [
     {
-      icon: "🏘️",
+      icon: "",
       title: "Comunidades Locais",
       description: "Conecte-se com vizinhos e profissionais da sua região",
     },
     {
-      icon: "🤝",
+      icon: "",
       title: "Recomendações Reais",
       description: "Indicações de pessoas que moram perto de você",
     },
     {
-      icon: "🛡️",
+      icon: "",
       title: "Confiança",
       description: "A segurança de contratar quem já foi testado",
     },
@@ -38,7 +38,7 @@ const Communities = () => {
             <div className="community-features">
               {communityFeatures.map((feature, index) => (
                 <div key={index} className="community-feature">
-                  <div className="community-icon">{feature.icon}</div>
+                  {/*<div className="community-icon">{feature.icon}</div>*/}
                   <div>
                     <h3>{feature.title}</h3>
                     <p>{feature.description}</p>

@@ -4,11 +4,19 @@ import Logo from "./Logo";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSubscriptionPage, setIsSubscriptionPage] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
+    // Verificar se está na página de assinatura
+    const checkPage = () => {
+      setIsSubscriptionPage(window.location.pathname === "/assinatura");
+    };
+
+    checkPage();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -20,7 +28,32 @@ const Header = () => {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
+
+    // Se estiver na página de assinatura, navegar para a página inicial
+    if (isSubscriptionPage) {
+      window.location.href = `/${targetId}`;
+      return;
+    }
+
+    // Se estiver na página inicial, fazer scroll para a seção
     const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleDownloadClick = (e) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    // Se estiver na página de assinatura, navegar para a página inicial
+    if (isSubscriptionPage) {
+      window.location.href = "/#download";
+      return;
+    }
+
+    // Se estiver na página inicial, fazer scroll para a seção
+    const targetElement = document.querySelector("#download");
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -31,7 +64,9 @@ const Header = () => {
       <div className="container">
         <nav className="nav">
           <div className="nav-brand">
-            <Logo size="medium" />
+            <a href="/">
+              <Logo size="medium" />
+            </a>
           </div>
           <ul className={`nav-menu ${isMobileMenuOpen ? "nav-menu-open" : ""}`}>
             <li>
@@ -63,27 +98,16 @@ const Header = () => {
                 Assinatura
               </a>
             </li>
-            {/* <li>
-              <a
-                href="#comunidades"
-                onClick={(e) => handleNavClick(e, "#comunidades")}
-              >
-                Comunidades
-              </a>
-            </li> */}
           </ul>
           <div
             className={`nav-actions ${
               isMobileMenuOpen ? "nav-actions-open" : ""
             }`}
           >
-            <a href="#login" className="nav-link">
-              Entrar
-            </a>
             <a
               href="#download"
               className="btn btn-primary"
-              onClick={(e) => handleNavClick(e, "#download")}
+              onClick={handleDownloadClick}
             >
               Baixar App
             </a>

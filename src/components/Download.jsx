@@ -38,12 +38,12 @@ const Download = () => {
             </a>
           </div>
 
-          <div className="qr-code-section">
+          {/*<div className="qr-code-section">
             <div className="qr-code">
               <div className="qr-placeholder">📱 QR Code</div>
               <p>Escaneie para baixar</p>
             </div>
-          </div>
+          </div>*/}
 
           <div className="download-stats">
             <div className="stat">
