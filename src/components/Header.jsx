@@ -59,16 +59,18 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="/assinatura">Assinatura</a>
+              <a href="/assinatura" className="nav-highlight">
+                Assinatura
+              </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#comunidades"
                 onClick={(e) => handleNavClick(e, "#comunidades")}
               >
                 Comunidades
               </a>
-            </li>
+            </li> */}
           </ul>
           <div
             className={`nav-actions ${

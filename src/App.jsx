@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import SubscriptionCTA from "./components/SubscriptionCTA";
 import HowItWorks from "./components/HowItWorks";
 import ForProviders from "./components/ForProviders";
 import ForClients from "./components/ForClients";
@@ -68,6 +69,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <SubscriptionCTA />
       <Hero />
       <HowItWorks />
       <ForClients />

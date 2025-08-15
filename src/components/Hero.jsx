@@ -7,9 +7,6 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-logo">
-              <Logo size="large" />
-            </div>
             <h1>Conecte-se com profissionais da sua vizinhança</h1>
             <p>
               O Indika e o marketplace que conecta voce aos melhores prestadores
